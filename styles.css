@@ -1,0 +1,132 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+:root{
+    --time-line-color:rgb(177, 179, 177);
+    --grid-gap: 25px;
+    --hvcoloe: rgb(49, 194, 199);
+    --after-height: 100%;
+    --after-line: calc(var(--grid-gap) * -1);
+    --headiv-margin-buttom: 30px;
+}
+body{
+    background-color: #ddd;
+}
+.container{
+    display: grid;
+    gap: var(--grid-gap);
+}
+.notification{
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+.d-profile{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    
+}
+.profile{
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+.d-profile::after{
+    content: "";
+    position: absolute;
+    width: 1.3px;
+    height: var(--after-height);
+    background-color: var(--time-line-color);
+    bottom: var(--after-line);
+    z-index: -1;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+.notification:first-child > .d-profile::before{
+    content: "";
+    position: absolute;
+    width: 1.3px;
+    height: var(--after-height);
+    background-color: var(--time-line-color);
+    top: calc(var(--headiv-margin-buttom) * -1) ;
+    z-index: -1;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    
+}
+.notification:last-child > .d-profile::after{
+    display: none;
+}
+
+.sub-notification{
+    background-color: white;
+    padding: 20px;
+    border: 1.5px solid var(--time-line-color);
+    position: relative;
+    border-radius: 6px;
+}
+.notification-header{
+    display: flex;
+}
+.notice{
+    width: 1.2rem;
+    height: 1.2rem;
+    align-self: center;
+    background-color: black;
+    border-radius: 50%;
+    padding: 2px;
+
+}
+p.left-p{
+    flex-grow: 1;
+    padding-left: 20px;
+}
+p.right-p{
+    color: var(--time-line-color);
+}
+p.down-p{
+    background-color: rgb(240, 240, 240);
+    padding: 5px;
+    border-radius: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.headiv{
+    display: flex;
+    border-bottom: 2px solid var(--time-line-color);
+    margin-bottom: var(--headiv-margin-buttom);
+}
+.time{
+    margin-bottom: 80px;
+}
+.main-container{
+    max-width: 900px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width: 640px) {
+    .down-p{
+        font-size: .7rem
+    }
+    .profile{
+        width: 50px;
+    }
+}
+@media screen and (max-width: 400px) {
+    
+    .profile{
+        width: 90%;
+    }
+    .notice, .left-p, .right-p{
+        font-size: .8rem;
+    }
+}
